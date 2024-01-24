@@ -14,6 +14,7 @@
 		7E62C89A2B61667600AF3B0F /* CalculatorCloneTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E62C8992B61667600AF3B0F /* CalculatorCloneTests.swift */; };
 		7E62C8A42B61667600AF3B0F /* CalculatorCloneUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E62C8A32B61667600AF3B0F /* CalculatorCloneUITests.swift */; };
 		7E62C8A62B61667600AF3B0F /* CalculatorCloneUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E62C8A52B61667600AF3B0F /* CalculatorCloneUITestsLaunchTests.swift */; };
+		7E62C8B32B6170FF00AF3B0F /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7E62C8B22B6170FF00AF3B0F /* Colors.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		7E62C89F2B61667600AF3B0F /* CalculatorCloneUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CalculatorCloneUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E62C8A32B61667600AF3B0F /* CalculatorCloneUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorCloneUITests.swift; sourceTree = "<group>"; };
 		7E62C8A52B61667600AF3B0F /* CalculatorCloneUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorCloneUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		7E62C8B22B6170FF00AF3B0F /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +100,7 @@
 				7E62C88A2B61667500AF3B0F /* ContentView.swift */,
 				7E62C88C2B61667600AF3B0F /* Assets.xcassets */,
 				7E62C88E2B61667600AF3B0F /* Preview Content */,
+				7E62C8B22B6170FF00AF3B0F /* Colors.xcassets */,
 			);
 			path = CalculatorClone;
 			sourceTree = "<group>";
@@ -231,6 +234,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7E62C8B32B6170FF00AF3B0F /* Colors.xcassets in Resources */,
 				7E62C8902B61667600AF3B0F /* Preview Assets.xcassets in Resources */,
 				7E62C88D2B61667600AF3B0F /* Assets.xcassets in Resources */,
 			);
