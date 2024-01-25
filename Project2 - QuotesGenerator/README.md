@@ -1,4 +1,4 @@
-#Quote Generator 
+# Quote Generator 
 
 간단한 명언 생성기 어플
 
