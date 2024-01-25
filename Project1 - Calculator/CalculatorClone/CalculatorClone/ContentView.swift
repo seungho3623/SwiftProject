@@ -77,6 +77,9 @@ enum ButtonType: String{
 struct ContentView: View {
     
     @State private var totalNumber: String = "0"
+    @State private var tempNubmer : Int = 0
+    @State private var operateMode : ButtonType = .clear
+    @State private var isEditing : Bool = false
     
     private let buttonData: [[ButtonType]] = [
         [.clear, .oppsite, .percent, .devide],
@@ -103,7 +106,80 @@ struct ContentView: View {
                     HStack{
                         ForEach(line, id: \.self){ item in
                             Button{
-                                totalNumber = calcuatorNumber(button: item)
+                                if isEditing == false {
+                                    if item == .clear {
+                                        totalNumber = "0"
+                                        isEditing = false
+                                    } else if item == .plus {
+                                        operateMode = .plus
+                                    } else if item == .minus {
+                                        operateMode = .minus
+                                    } else if item == .multiple {
+                                        operateMode = .multiple
+                                    } else if item == .devide {
+                                        operateMode = .devide
+                                    } else if item == .percent {
+                                        operateMode = .percent
+                                    } else if item == .equal {
+                                        tempNubmer = Int(totalNumber) ?? 0
+                                        operateMode = .equal
+                                    } else if item == .oppsite {
+                                        operateMode = .oppsite
+                                        totalNumber = (totalNumber == "0") ? "-0" : "0"
+                                    } else {
+                                        totalNumber = item.buttonDisplayName
+                                        isEditing = true
+                                    }
+                                    
+                                } else {
+                                    if item == .clear {
+                                        totalNumber = "0"
+                                        operateMode = .clear
+                                        isEditing = false
+                                    } else if item == .plus {
+                                        tempNubmer = Int(totalNumber) ?? 0
+                                        operateMode = .plus
+                                        isEditing = false
+                                    } else if item == .minus {
+                                        tempNubmer = Int(totalNumber) ?? 0
+                                        operateMode = .minus
+                                        isEditing = false
+                                    } else if item == .multiple {
+                                        tempNubmer = Int(totalNumber) ?? 0
+                                        operateMode = .multiple
+                                        isEditing = false
+                                    } else if item == .devide {
+                                        tempNubmer = Int(totalNumber) ?? 0
+                                        operateMode = .devide
+                                        isEditing = false
+                                    } else if item == .percent {
+                                        tempNubmer = Int(totalNumber) ?? 0
+                                        operateMode = .percent
+                                        isEditing = false
+                                    } else if item == .oppsite {
+                                        if totalNumber.prefix(1) == "-" {
+                                            totalNumber = String(totalNumber.dropFirst(1))
+                                        } else {
+                                            totalNumber = "-" + totalNumber
+                                        }
+                                    } else if item == .equal {
+                                        if operateMode == .plus {
+                                            totalNumber = String((Int(totalNumber) ?? 0) + tempNubmer)
+                                        } else if operateMode == .minus {
+                                            totalNumber = String(tempNubmer - (Int(totalNumber) ?? 0))
+                                        } else if operateMode == .multiple {
+                                            totalNumber = String((Int(totalNumber) ?? 0) * tempNubmer)
+                                        } else if operateMode == .devide {
+                                            totalNumber = String(tempNubmer / (Int(totalNumber) ?? 0))
+                                        } else if operateMode == .percent {
+                                            totalNumber = String(tempNubmer % (Int(totalNumber) ?? 0))
+                                        }
+                                        isEditing = false
+                                    }
+                                    else {
+                                        totalNumber += item.buttonDisplayName
+                                    }
+                                }
                             } label: {
                                 Text(item.buttonDisplayName)
                                     .frame(width: buttonWidth(button: item),
@@ -121,12 +197,8 @@ struct ContentView: View {
     }
 }
 
-private func calcuatorNumber(button: ButtonType) -> String {
-    return "TEST"
-}
-
 private func buttonWidth(button: ButtonType) -> CGFloat {
-    return (button == .zero) ? (UIScreen.main.bounds.width - 5 * 10) / 4 * 2
+    return (button == .zero) ? (UIScreen.main.bounds.width - 5 * 10) / 1.92
     : (UIScreen.main.bounds.width - 5 * 10) / 4
 }
 
