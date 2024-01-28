@@ -2,7 +2,7 @@
 //  DiaryDetailViewController.swift
 //  Diary
 //
-//  Created by Gunter on 2021/09/10.
+//  Created by 송승호 on 2024/01/28
 //
 
 import UIKit
